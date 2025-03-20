@@ -1,0 +1,6 @@
+@FinanceCNPJ.API_HostAddress = http://localhost:5159
+
+GET {{FinanceCNPJ.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
