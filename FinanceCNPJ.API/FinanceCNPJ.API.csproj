@@ -12,7 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinanceCNPJ.Aplicacao\FinanceCNPJ.Aplicacao.csproj" />
+	  <ProjectReference Include="..\FinanceCNPJ.Aplicacao\FinanceCNPJ.Aplicacao.csproj" />
+	  <ProjectReference Include="..\FinanceCNPJ.Infraestrutura\FinanceCNPJ.Infraestrutura.csproj" />
+	  <ProjectReference Include="..\FinanceCNPJ.Dominio\FinanceCNPJ.Dominio.csproj" />
   </ItemGroup>
+
+
 
 </Project>
