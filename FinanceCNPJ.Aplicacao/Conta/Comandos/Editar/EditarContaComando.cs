@@ -1,6 +1,8 @@
-﻿namespace FinanceCNPJ.Aplicacao.Conta.Comandos.Editar
+﻿using FinanceCNPJ.Aplicacao.Conta.ViewModel;
+using MediatR;
+
+public class EditarContaComando : IRequest<ContaViewModel>
 {
-    internal class EditarContaComando
-    {
-    }
+    public long Id { get; set; }
+    public required string DocumentoBase64 { get; set; }
 }

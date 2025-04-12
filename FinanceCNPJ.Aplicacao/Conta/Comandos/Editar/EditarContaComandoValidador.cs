@@ -1,6 +1,13 @@
-﻿namespace FinanceCNPJ.Aplicacao.Conta.Comandos.Editar
+﻿using FluentValidation;
+
+public class EditarContaComandoValidador : AbstractValidator<EditarContaComando>
 {
-    internal class EditarContaComandoValidador
+    public EditarContaComandoValidador()
     {
+        RuleFor(x => x.Id)
+            .GreaterThan(0).WithMessage("O Id da conta é obrigatório e deve ser válido.");
+
+        RuleFor(x => x.DocumentoBase64)
+            .NotEmpty().WithMessage("O documento é obrigatório.");
     }
 }

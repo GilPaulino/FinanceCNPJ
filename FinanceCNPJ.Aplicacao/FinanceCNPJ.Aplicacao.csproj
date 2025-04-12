@@ -2,20 +2,20 @@
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-	  <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="FluentValidation" Version="11.7.0" />
-	  <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.0" />
-	  <PackageReference Include="MediatR" Version="12.1.1" />
+		<PackageReference Include="FluentValidation" Version="11.7.0" />
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.0" />
+		<PackageReference Include="MediatR" Version="11.0.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Conta\Comandos\Excluir\" />
-	  <Folder Include="Conta\Consultas\" />
-	  <Folder Include="Conta\ViewModel\" />
+		<ProjectReference Include="..\FinanceCNPJ.Dominio\FinanceCNPJ.Dominio.csproj" />
+		<ProjectReference Include="..\FinanceCNPJ.Infraestrutura\FinanceCNPJ.Infraestrutura.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,18 +1,46 @@
+.vs/
+.vscode/
+*.user
+*.suo
+
+
 bin/
 obj/
+out/
 
-wwwroot/
 
-.vscode/
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+*.psmdcp
+
+
+Migrations/
+
+
+*.log
+*.tlog
+*.cache
+*.pdb
+
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
 .idea/
 
-*.cab
-*.msi
-*.msm
-*.msp
+TestResults/
+*.coverage
+*.coveragexml
 
-ScaffoldingReadMe.txt
+appsettings.*.json
 
-*.[Cc]ache
-*.pdb
-.vs/
+
+*.tmp
+*.bak
+
+
+Documentos/

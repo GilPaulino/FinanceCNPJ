@@ -1,6 +1,8 @@
-﻿namespace FinanceCNPJ.Aplicacao.Conta.Comandos.Criar
+﻿using FinanceCNPJ.Aplicacao.Conta.Comandos.Base;
+
+namespace FinanceCNPJ.Aplicacao.Conta.Comandos.Criar
 {
-    internal class CriarContaComando
+    public class CriarContaComando : ContaComandoBase
     {
     }
 }
