@@ -1,6 +1,6 @@
 ﻿namespace FinanceCNPJ.Aplicacao.Conta.ViewModel
 {
-    public class BuscarContaFiltroViewModel
+    public class ContaFiltroViewModel
     {
         public string? CNPJ { get; set; }
         public string? Nome { get; set; }

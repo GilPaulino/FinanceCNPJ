@@ -10,6 +10,7 @@ using FinanceCNPJ.Aplicacao.Conta.Comandos.Criar;
 using MediatR;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using FinanceCNPJ.Infraestrutura.Repositorios;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,7 @@ builder.Services.AddMediatR(
 );
 
 builder.Services.AddScoped<IContaRepositorio, ContaRepositorio>();
+builder.Services.AddScoped<ITransacaoRepositorio, TransacaoRepositorio>();
 
 builder.Services.AddScoped<ICnpjFormatter, CnpjFormatter>();
 builder.Services.AddScoped<IDocumentoService, DocumentoService>();
@@ -30,9 +32,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("FinanceCNPJConnection"))
 );
 
-builder.Services.AddHttpClient();  
+builder.Services.AddHttpClient();
 
-builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CriarContaComando>());
+builder.Services
+    .AddFluentValidationAutoValidation()
+    .AddFluentValidationClientsideAdapters();
+
+builder.Services.AddValidatorsFromAssemblyContaining<CriarContaComando>();
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

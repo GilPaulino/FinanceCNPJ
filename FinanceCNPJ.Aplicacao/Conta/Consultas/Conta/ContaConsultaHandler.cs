@@ -2,18 +2,18 @@
 using FinanceCNPJ.Dominio.Repositorios;
 using MediatR;
 
-namespace FinanceCNPJ.Aplicacao.Conta.Consultas
+namespace FinanceCNPJ.Aplicacao.Conta.Consultas.Conta
 {
-    public class BuscarContaConsultaHandler : IRequestHandler<BuscarContaConsulta, List<ContaViewModel>>
+    public class ContaConsultaHandler : IRequestHandler<ContaConsulta, List<ContaViewModel>>
     {
         private readonly IContaRepositorio _contaRepositorio;
 
-        public BuscarContaConsultaHandler(IContaRepositorio contaRepositorio)
+        public ContaConsultaHandler(IContaRepositorio contaRepositorio)
         {
             _contaRepositorio = contaRepositorio;
         }
 
-        public async Task<List<ContaViewModel>> Handle(BuscarContaConsulta request, CancellationToken cancellationToken)
+        public async Task<List<ContaViewModel>> Handle(ContaConsulta request, CancellationToken cancellationToken)
         {
             var filtro = request.Filtro;
             var contas = await _contaRepositorio.BuscarAsync(filtro.CNPJ, filtro.Nome, filtro.NumeroConta, filtro.Agencia);

@@ -3,6 +3,8 @@ using FinanceCNPJ.Aplicacao.Conta.Comandos.Criar;
 using FinanceCNPJ.Aplicacao.Conta.Comandos.Editar;
 using FinanceCNPJ.Aplicacao.Conta.Comandos.Excluir;
 using FinanceCNPJ.Aplicacao.Conta.Consultas;
+using FinanceCNPJ.Aplicacao.Conta.Consultas.Conta;
+using FinanceCNPJ.Aplicacao.Conta.Consultas.Saldo;
 using FinanceCNPJ.Aplicacao.Conta.ViewModel;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -40,11 +42,19 @@ namespace FinanceCNPJ.API.Controllers
         }
 
         [HttpGet("Buscar")]
-        public async Task<IActionResult> BuscarConta([FromQuery] BuscarContaFiltroViewModel filtro)
+        public async Task<IActionResult> BuscarConta([FromQuery] ContaFiltroViewModel filtro)
         {
-            var consulta = new BuscarContaConsulta { Filtro = filtro };
+            var consulta = new ContaConsulta { Filtro = filtro };
             var resultado = await Mediator.Send(consulta);
             return Ok(resultado);
+        }
+
+        [HttpGet("Saldo")]
+        public async Task<IActionResult> ObterSaldo([FromQuery] long contaId)
+        {
+            var consulta = new SaldoConsulta { ContaId = contaId };
+            var saldo = await Mediator.Send(consulta);
+            return Ok(saldo);
         }
 
     }

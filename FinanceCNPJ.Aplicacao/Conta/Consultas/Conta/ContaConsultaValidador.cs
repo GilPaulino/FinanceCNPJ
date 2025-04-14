@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace FinanceCNPJ.Aplicacao.Conta.Consultas
+namespace FinanceCNPJ.Aplicacao.Conta.Consultas.Conta
 {
-    public class BuscarContaConsultaValidador : AbstractValidator<BuscarContaConsulta>
+    public class ContaConsultaValidador : AbstractValidator<ContaConsulta>
     {
-        public BuscarContaConsultaValidador()
+        public ContaConsultaValidador()
         {
             RuleFor(x => x)
                 .Must(x =>
