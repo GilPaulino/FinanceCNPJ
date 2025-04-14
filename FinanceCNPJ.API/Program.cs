@@ -11,6 +11,8 @@ using MediatR;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using FinanceCNPJ.Infraestrutura.Repositorios;
+using FinanceCNPJ.Aplicacao.Transacao.Servicos.Interfaces;
+using FinanceCNPJ.Aplicacao.Transacao.Servicos.Implementacoes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,7 @@ builder.Services.AddScoped<ITransacaoRepositorio, TransacaoRepositorio>();
 builder.Services.AddScoped<ICnpjFormatter, CnpjFormatter>();
 builder.Services.AddScoped<IDocumentoService, DocumentoService>();
 builder.Services.AddScoped<IReceitaWsService, ReceitaWsService>();
+builder.Services.AddScoped<ISaldoService, SaldoService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("FinanceCNPJConnection"))

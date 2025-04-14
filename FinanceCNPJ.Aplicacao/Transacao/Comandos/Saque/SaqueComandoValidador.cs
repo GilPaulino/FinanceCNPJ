@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
+using FinanceCNPJ.Aplicacao.Transacao.Comandos.Saque;
 
 namespace FinanceCNPJ.Aplicacao.Transacao.Comandos.Saque
 {
-    internal class SaqueComandoValidador
+    public class SaqueComandoValidador : AbstractValidator<SaqueComando>
     {
+        public SaqueComandoValidador()
+        {
+            RuleFor(x => x.Valor)
+                .GreaterThan(0)
+                .WithMessage("O valor do saque deve ser maior que zero.");
+
+            RuleFor(x => x.ContaId)
+                .GreaterThan(0)
+                .WithMessage("A conta de origem deve ser válida.");
+        }
     }
 }

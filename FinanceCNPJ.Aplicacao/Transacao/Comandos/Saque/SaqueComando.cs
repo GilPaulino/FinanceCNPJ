@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FinanceCNPJ.Aplicacao.Transacao.Comandos.Base;
+using MediatR;
 
 namespace FinanceCNPJ.Aplicacao.Transacao.Comandos.Saque
 {
-    internal class SaqueComando
+    public class SaqueComando : TransacaoComandoBase, IRequest<Unit>
     {
     }
 }
