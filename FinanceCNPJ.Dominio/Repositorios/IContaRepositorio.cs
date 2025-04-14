@@ -10,5 +10,6 @@ namespace FinanceCNPJ.Dominio.Repositorios
         Task AtualizarAsync(Conta conta);
         Task ExcluirAsync(long id);
         Task<List<Conta>> BuscarAsync(string? cnpj, string? nome, string? numeroConta, string? agencia);
+        Task<Conta?> ObterPorNumeroEAgenciaAsync(string numeroConta, string agencia);
     }
 }

@@ -76,5 +76,10 @@ namespace FinanceCNPJ.Infraestrutura.Persistencia.Repositorios
 
             return await query.ToListAsync();
         }
+        public async Task<Conta?> ObterPorNumeroEAgenciaAsync(string numeroConta, string agencia)
+        {
+            return await _contexto.Contas
+                .FirstOrDefaultAsync(c => c.NumeroConta == numeroConta && c.Agencia == agencia);
+        }
     }
 }

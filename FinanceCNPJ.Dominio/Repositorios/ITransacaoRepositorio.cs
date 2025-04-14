@@ -4,4 +4,5 @@ public interface ITransacaoRepositorio
 {
     Task AdicionarAsync(Transacao transacao);
     Task<List<Transacao>> ObterPorContaIdAsync(long contaId);
+
 }

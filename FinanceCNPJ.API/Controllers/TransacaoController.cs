@@ -3,6 +3,7 @@ using FinanceCNPJ.Aplicacao.Conta.Consultas.Extrato;
 using FinanceCNPJ.Aplicacao.Conta.Consultas.Saldo;
 using FinanceCNPJ.Aplicacao.Transacao.Comandos.Deposito;
 using FinanceCNPJ.Aplicacao.Transacao.Comandos.Saque;
+using FinanceCNPJ.Aplicacao.Transacao.Comandos.Transferencia;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +42,23 @@ namespace FinanceCNPJ.API.Controllers
             }
         }
 
+        [HttpPost("transferencia")]
+        public async Task<IActionResult> Transferir([FromBody] TransferenciaComando comando)
+        {
+            try
+            {
+                await Mediator.Send(comando);
+                return Ok(new { mensagem = "Transferência realizada com sucesso." });
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { erro = ex.Message });
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { erro = ex.Message });
+            }
+        }
 
         [HttpGet("extrato/{contaId}")]
         public async Task<IActionResult> ObterExtrato(long contaId)

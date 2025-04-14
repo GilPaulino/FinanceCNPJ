@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace FinanceCNPJ.Aplicacao.Transacao.Comandos.Transferencia
 {
-    internal class TransferenciaComando
+    public class TransferenciaComando : IRequest
     {
+        public long ContaId { get; set; }
+        public decimal Valor { get; set; }
+        public required string NumeroConta { get; set; }
+        public required string Agencia { get; set; }
     }
 }

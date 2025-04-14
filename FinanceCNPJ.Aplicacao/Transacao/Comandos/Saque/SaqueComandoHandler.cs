@@ -14,11 +14,11 @@ namespace FinanceCNPJ.Aplicacao.Transacao.Comandos.Saque
         private readonly IContaRepositorio _contaRepositorio;
         private readonly ITransacaoRepositorio _transacaoRepositorio;
         private readonly ISaldoService _saldoService;
-        public SaqueComandoHandler(IContaRepositorio contaRepositorio, ITransacaoRepositorio transacaoRepositorio, ISaldoService saldoServic)
+        public SaqueComandoHandler(IContaRepositorio contaRepositorio, ITransacaoRepositorio transacaoRepositorio, ISaldoService saldoService)
         {
             _contaRepositorio = contaRepositorio;
             _transacaoRepositorio = transacaoRepositorio;
-            _saldoService = saldoServic;
+            _saldoService = saldoService;
         }
 
         public async Task<Unit> Handle(SaqueComando request, CancellationToken cancellationToken)
